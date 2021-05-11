@@ -1,6 +1,8 @@
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import { createGlobalStyle } from "styled-components";
 import Landing from "./pages/Landing";
+import CinemaSessions from "./pages/CinemaSessions";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -15,8 +17,13 @@ export default function App() {
   return (
     <>
       <GlobalStyle />
-      <Header />
-      <Landing />
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route path="/" component={Landing} exact />
+          <Route path="/sessoes/" component={CinemaSessions} />
+        </Switch>
+      </BrowserRouter>
     </>
   );
 }

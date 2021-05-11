@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-const Content = styled.div`
+export default styled.div`
   width: 100%;
   max-width: 375px;
   margin: 0 auto;
   margin-top: 67px;
+  padding: 0 ${({ padding }) => padding || ""};
 
   @media (min-width: 550px) {
     max-width: 550px;
@@ -18,7 +19,3 @@ const Content = styled.div`
     max-width: 1150px;
   }
 `;
-
-export default function Container({ children }) {
-  return <Content>{children}</Content>;
-}
