@@ -1,20 +1,19 @@
 import styled from "styled-components";
 
-export default function Text({ height, fontSize, alignment, text }) {
-  const TextHolder = styled.div`
-    display: flex;
-    justify-content: ${alignment};
-    align-items: center;
+const TextHolder = styled.div`
+  display: flex;
+  justify-content: ${(props) => props.aln};
+  align-items: center;
 
-    height: ${height};
-    font-size: ${fontSize};
-    color: #293845;
+  height: ${(props) => props.h};
+  font-size: ${(props) => props.fsz};
+  color: #293845;
+`;
 
-    margin-top: 200px;
-  `;
+export default function Text({ height, fontSize, alignment, children }) {
   return (
-    <TextHolder>
-      <p>{text}</p>
+    <TextHolder h={height} fsz={fontSize} aln={alignment}>
+      <p>{children}</p>
     </TextHolder>
   );
 }

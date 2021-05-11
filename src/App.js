@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import { createGlobalStyle } from "styled-components";
-import Text from "./components/Text";
+import Landing from "./pages/Landing";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -16,6 +16,7 @@ export default function App() {
     <>
       <GlobalStyle />
       <Header />
+      <Landing />
     </>
   );
 }
