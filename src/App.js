@@ -1,5 +1,4 @@
-import ReactDom from "react-dom";
-import App from "./App";
+import Header from "./components/Header";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -9,4 +8,11 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }`;
 
-ReactDom.render(<App />, document.querySelector(".root"));
+export default function App() {
+  return (
+    <>
+      <GlobalStyle />
+      <Header />
+    </>
+  );
+}
