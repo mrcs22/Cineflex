@@ -31,10 +31,10 @@ const Item = styled.li`
   }
 `;
 
-export default function MovieCard({ imageSrc, alt }) {
+export default function MovieCard({ imageSrc, title }) {
   return (
     <Item>
-      <img src={imageSrc} alt="some descritive text" />
+      <img src={imageSrc} alt={title} />
     </Item>
   );
 }

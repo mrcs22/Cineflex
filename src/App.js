@@ -21,7 +21,7 @@ export default function App() {
         <Header />
         <Switch>
           <Route path="/" component={Landing} exact />
-          <Route path="/sessoes/" component={CinemaSessions} />
+          <Route path="/sessoes/:movieId" component={CinemaSessions} />
         </Switch>
       </BrowserRouter>
     </>

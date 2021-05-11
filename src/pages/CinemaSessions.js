@@ -1,35 +1,43 @@
 import Container from "../components/Container";
 import Text from "../components/general/Text";
 import DayMovieTimesCard from "../components/dayMovieTimes/DayMovieTimesCard";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router";
 
 export default function CinemaSession() {
+  const { movieId } = useParams();
+
+  const [movieData, setMovieData] = useState([]);
+
+  useEffect(() => {
+    const promise = axios.get(
+      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${movieId}/showtimes`
+    );
+
+    promise.then((res) => {
+      setMovieData(res.data);
+    });
+  }, [movieId]);
+
+  if (movieData.length === 0) {
+    return <h1>Loading</h1>;
+  }
+
   return (
     <Container padding="23px">
       <Text height="110px" fontSize="24px" centered>
         Selecione o horário
       </Text>
 
-      {sessionsDay.map(({ date, day, movieTimes }) => (
-        <DayMovieTimesCard date={date} day={day} movieTimes={movieTimes} />
+      {movieData.days.map(({ weekday, date, showtimes, id }) => (
+        <DayMovieTimesCard
+          key={id}
+          date={date}
+          day={weekday}
+          movieTimes={showtimes}
+        />
       ))}
     </Container>
   );
 }
-
-const sessionsDay = [
-  {
-    date: "24/06/2021",
-    day: "Quinta-feira",
-    movieTimes: ["15:00", "19:00"],
-  },
-  {
-    date: "25/06/2021",
-    day: "Sexta-feira",
-    movieTimes: ["15:00", "19:00"],
-  },
-  {
-    date: "26/06/2021",
-    day: "Sábado",
-    movieTimes: ["15:00", "17:00", "19:00", "21:00", "23:00"],
-  },
-];

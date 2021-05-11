@@ -9,8 +9,8 @@ export default function MovieTimesCard({ date, day, movieTimes }) {
         {day} - {date}
       </Text>
       <List>
-        {movieTimes.map((movieTime) => (
-          <MovieTime>{movieTime}</MovieTime>
+        {movieTimes.map(({ name, id }) => (
+          <MovieTime key={id}>{name}</MovieTime>
         ))}
       </List>
     </>
