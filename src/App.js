@@ -2,7 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import { createGlobalStyle } from "styled-components";
 import Landing from "./pages/Landing";
-import CinemaSessions from "./pages/CinemaSessions";
+import MovieSessions from "./pages/MovieSessions";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -21,7 +21,7 @@ export default function App() {
         <Header />
         <Switch>
           <Route path="/" component={Landing} exact />
-          <Route path="/sessoes/:movieId" component={CinemaSessions} />
+          <Route path="/filme/:movieId" component={MovieSessions} />
         </Switch>
       </BrowserRouter>
     </>

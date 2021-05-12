@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import List from "../general/FlexUl";
+import List from "./general/FlexUl";
 import { Link } from "react-router-dom";
-import MovieCard from "./MovieCard";
+import MovieCard from "./general/MovieCard";
 
 export default function MoviesList() {
   const [movies, setMovies] = useState([]);
@@ -15,8 +15,16 @@ export default function MoviesList() {
     <List centered>
       {movies.map(({ posterURL, id, title }) => {
         return (
-          <Link key={id} to={`/sessoes/${id}`}>
-            <MovieCard imageSrc={posterURL} title={title} />
+          <Link key={id} to={`/filme/${id}`}>
+            <li>
+              <MovieCard
+                height="209px"
+                width="145px"
+                imageSrc={posterURL}
+                title={title}
+                margin
+              />
+            </li>
           </Link>
         );
       })}

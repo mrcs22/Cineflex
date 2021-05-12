@@ -1,5 +1,5 @@
-import Container from "../components/Container";
-import MoviesList from "../components/movieList/MoviesList";
+import Container from "../components/general/Container";
+import MoviesList from "../components/MoviesList";
 import Text from "../components/general/Text";
 
 export default function Landing() {

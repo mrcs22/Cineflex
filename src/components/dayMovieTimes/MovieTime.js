@@ -16,4 +16,10 @@ export default styled.li`
   margin: 23px 0;
   margin-right: 8px;
   border-radius: 3px;
+
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(120%);
+  }
 `;
