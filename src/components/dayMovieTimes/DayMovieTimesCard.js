@@ -1,6 +1,7 @@
 import Text from "../general/Text";
 import MovieTime from "./MovieTime";
 import List from "../general/FlexUl";
+import { Link } from "react-router-dom";
 
 export default function MovieTimesCard({ date, day, movieTimes }) {
   return (
@@ -10,7 +11,9 @@ export default function MovieTimesCard({ date, day, movieTimes }) {
       </Text>
       <List>
         {movieTimes.map(({ name, id }) => (
-          <MovieTime key={id}>{name}</MovieTime>
+          <Link key={id} to={`/sessao/${id}`}>
+            <MovieTime>{name}</MovieTime>
+          </Link>
         ))}
       </List>
     </>

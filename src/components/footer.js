@@ -23,16 +23,33 @@ const FooterDiv = styled.div`
   div:first-child {
     margin-right: 14px;
   }
+
+  div:last-child {
+    width: calc(95% - 69px);
+  }
+
+  p {
+    white-space: nowrap;
+    overflow: hidden;
+  }
 `;
 
-export default function Footer({ title, imageSrc }) {
+export default function Footer({ title, subtitle, imageSrc }) {
   return (
     <FooterDiv>
       <MovieCard height="89px" width="69px" title={title} imageSrc={imageSrc} />
-
-      <Text height="40px" width="calc(95% - 69px)" fontSize="26px">
-        {title}
-      </Text>
+      <div>
+        <MovieInfo text={title} />
+        {subtitle && <MovieInfo text={subtitle} />}
+      </div>
     </FooterDiv>
   );
+
+  function MovieInfo({ text }) {
+    return (
+      <Text height="28px" width="100%" fontSize="26px">
+        {text}
+      </Text>
+    );
+  }
 }
