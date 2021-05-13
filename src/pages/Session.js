@@ -4,9 +4,11 @@ import Container from "../components/general/Container";
 import Text from "../components/general/Text";
 import SeatsList from "../components/SeatsList";
 import SeatsExample from "../components/SeatsExample";
+import ClientInfoInput from "../components/ClientInfoInput";
+import Button from "../components/general/Button";
 import Footer from "../components/footer";
+
 import { useEffect, useState } from "react";
-import styled from "styled-components";
 
 export default function Session() {
   const { sessionId } = useParams();
@@ -58,6 +60,9 @@ export default function Session() {
           infoValue={clientCpf}
           setInfoValue={setClientCpf}
         ></ClientInfoInput>
+        <Button bgColor="#e8833a" onClick={savePurchaseData}>
+          Reservar assentos(s)
+        </Button>
       </Container>
 
       <Footer
@@ -67,31 +72,19 @@ export default function Session() {
       />
     </>
   );
-}
 
-const TextInput = styled.input`
-  height: 51px;
-  width: 327px;
-  border: 1px solid #d4d4d4;
-  border-radius: 3px;
+  function savePurchaseData() {
+    const Purchasedata = {
+      name: clientName,
+      cpf: clientCpf,
+      movie: movie.title,
+      sessioin: `${day.weekday} ${sessionData.name}`,
+      seats: countedSeats.filter((seat) => seat.isSelected),
+    };
 
-  padding: 0 18px;
-  margin-bottom: 7px;
-`;
-
-function ClientInfoInput({ infoType, infoValue, setInfoValue }) {
-  const capitalizedInfoType = infoType[0].toUpperCase() + infoType.slice(1);
-
-  return (
-    <>
-      <Text tallness="25px" fontSize="18px">
-        {capitalizedInfoType} do Comprador:
-      </Text>
-      <TextInput
-        onChange={(e) => setInfoValue(e.target.value)}
-        placeholder={`Digite seu ${infoType}...`}
-        value={infoValue}
-      ></TextInput>
-    </>
-  );
+    sessionStorage.setItem(
+      "cineflexPurchaseData",
+      JSON.stringify(Purchasedata)
+    );
+  }
 }
