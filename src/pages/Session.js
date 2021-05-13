@@ -62,7 +62,7 @@ export default function Session() {
           setInfoValue={setClientCpf}
         />
         <Link to="/sucesso">
-          <Button bgColor="#e8833a" onClick={savePurchaseData}>
+          <Button bgColor="#e8833a" onClick={savePurchaseDataAndMakePost}>
             Reservar assentos(s)
           </Button>
         </Link>
@@ -76,7 +76,7 @@ export default function Session() {
     </>
   );
 
-  function savePurchaseData() {
+  function savePurchaseDataAndMakePost() {
     const Purchasedata = {
       name: clientName,
       cpf: clientCpf,
@@ -85,9 +85,27 @@ export default function Session() {
       seats: countedSeats.filter((seat) => seat.isSelected),
     };
 
+    makePost(Purchasedata);
+
     sessionStorage.setItem(
       "cineflexPurchaseData",
       JSON.stringify(Purchasedata)
     );
+  }
+
+  function makePost({ name, cpf, seats }) {
+    const postBody = {
+      ids: seats.map((seat) => seat.id),
+      name: name,
+      cpf: cpf,
+    };
+
+    const promise = axios.post(
+      "https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many",
+      postBody
+    );
+
+    promise.then(() => console.log("post ok"));
+    promise.catch(() => console.log("something weong"));
   }
 }
