@@ -4,6 +4,7 @@ import { createGlobalStyle } from "styled-components";
 import Landing from "./pages/Landing";
 import MovieSessions from "./pages/MovieSessions";
 import Session from "./pages/Session";
+import Success from "./pages/Success";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -24,8 +25,9 @@ export default function App() {
         <Header />
         <Switch>
           <Route path="/" component={Landing} exact />
-          <Route path="/filme/:movieId" component={MovieSessions} />
-          <Route path="/sessao/:sessionId" component={Session} />
+          <Route path="/sessoes/:movieId" component={MovieSessions} />
+          <Route path="/assentos/:sessionId" component={Session} />
+          <Route path="/sucesso" component={Success} />
         </Switch>
       </BrowserRouter>
     </>

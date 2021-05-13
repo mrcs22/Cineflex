@@ -18,7 +18,7 @@ export default function MoviesList() {
       {movies.map(({ posterURL, id, title }) => {
         return (
           <li key={id}>
-            <Link to={`/filme/${id}`}>
+            <Link to={`/sessoes/${id}`}>
               <HoverableMovieCard
                 tallness="209px"
                 thickness="145px"

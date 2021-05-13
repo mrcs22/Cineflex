@@ -11,7 +11,7 @@ export default function MovieTimesCard({ date, day, movieTimes }) {
       </Text>
       <List>
         {movieTimes.map(({ name, id }) => (
-          <Link key={id} to={`/sessao/${id}`}>
+          <Link key={id} to={`/assentos/${id}`}>
             <MovieTime>{name}</MovieTime>
           </Link>
         ))}

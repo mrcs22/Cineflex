@@ -9,6 +9,7 @@ import Button from "../components/general/Button";
 import Footer from "../components/footer";
 
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Session() {
   const { sessionId } = useParams();
@@ -54,15 +55,17 @@ export default function Session() {
           infoType="nome"
           infoValue={clientName}
           setInfoValue={setClientName}
-        ></ClientInfoInput>
+        />
         <ClientInfoInput
           infoType="CPF"
           infoValue={clientCpf}
           setInfoValue={setClientCpf}
-        ></ClientInfoInput>
-        <Button bgColor="#e8833a" onClick={savePurchaseData}>
-          Reservar assentos(s)
-        </Button>
+        />
+        <Link to="/sucesso">
+          <Button bgColor="#e8833a" onClick={savePurchaseData}>
+            Reservar assentos(s)
+          </Button>
+        </Link>
       </Container>
 
       <Footer
@@ -78,7 +81,7 @@ export default function Session() {
       name: clientName,
       cpf: clientCpf,
       movie: movie.title,
-      sessioin: `${day.weekday} ${sessionData.name}`,
+      session: `${day.date} ${sessionData.name}`,
       seats: countedSeats.filter((seat) => seat.isSelected),
     };
 

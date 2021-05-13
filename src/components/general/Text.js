@@ -8,5 +8,6 @@ export default styled.p`
 
   height: ${({ tallness }) => tallness};
   font-size: ${({ fontSize }) => fontSize};
+  font-weight: ${({ weightBold }) => (weightBold ? 700 : 400)};
   color: #293845;
 `;
