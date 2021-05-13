@@ -6,7 +6,7 @@ export default styled.p`
 
   align-items: center;
 
-  height: ${({ height }) => height};
+  height: ${({ tallness }) => tallness};
   font-size: ${({ fontSize }) => fontSize};
   color: #293845;
 `;

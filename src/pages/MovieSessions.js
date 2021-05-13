@@ -28,7 +28,7 @@ export default function CinemaSession() {
   return (
     <>
       <Container padding="23px" marginBottom>
-        <Text height="110px" fontSize="24px" centered>
+        <Text tallness="110px" fontSize="24px" centered>
           Selecione o horário
         </Text>
 

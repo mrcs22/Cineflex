@@ -5,7 +5,7 @@ import Text from "../components/general/Text";
 export default function Landing() {
   return (
     <Container>
-      <Text height="110px" fontSize="24px" centered>
+      <Text tallness="110px" fontSize="24px" centered>
         Selecione o filme
       </Text>
       <MoviesList />

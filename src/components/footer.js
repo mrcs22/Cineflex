@@ -37,7 +37,9 @@ const FooterDiv = styled.div`
 export default function Footer({ title, subtitle, imageSrc }) {
   return (
     <FooterDiv>
-      <MovieCard height="89px" width="69px" title={title} imageSrc={imageSrc} />
+      <MovieCard tallness="89px" thickness="69px">
+        <img src={imageSrc} alt={title} />
+      </MovieCard>
       <div>
         <MovieInfo text={title} />
         {subtitle && <MovieInfo text={subtitle} />}
@@ -47,7 +49,7 @@ export default function Footer({ title, subtitle, imageSrc }) {
 
   function MovieInfo({ text }) {
     return (
-      <Text height="28px" width="100%" fontSize="26px">
+      <Text talness="28px" fontSize="26px">
         {text}
       </Text>
     );

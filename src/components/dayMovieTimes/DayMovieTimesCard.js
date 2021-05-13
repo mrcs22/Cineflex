@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function MovieTimesCard({ date, day, movieTimes }) {
   return (
     <>
-      <Text height="35px" fontSize="20px">
+      <Text tallness="35px" fontSize="20px">
         {day} - {date}
       </Text>
       <List>
