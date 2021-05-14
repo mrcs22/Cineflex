@@ -100,12 +100,9 @@ export default function Session() {
       cpf: cpf,
     };
 
-    const promise = axios.post(
+    axios.post(
       "https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many",
       postBody
     );
-
-    promise.then(() => console.log("post ok"));
-    promise.catch(() => console.log("something weong"));
   }
 }

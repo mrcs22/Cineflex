@@ -3,7 +3,6 @@ import Container from "../components/general/Container";
 import styled from "styled-components";
 import HomeButton from "../components/general/Button";
 import { Link } from "react-router-dom";
-import { Suspense } from "react";
 
 export default function Success() {
   const purchaseData = getPurchasedata();
